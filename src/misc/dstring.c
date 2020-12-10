@@ -140,7 +140,7 @@ int ds_cat_mem_case(DSTRING *p_ds, const char *p_src, size_t n_char,
     /* For "as-is" can simply memcpy */
     if (type_case == ds_case_as_is) {
         char *p_dst = p_ds->p_buf + p_ds->length;
-        (void) memcpy(p_dst, p_src, n_char);
+        (void) memmove(p_dst, p_src, n_char);
         p_dst += n_char;
         *p_dst = '\0';
         p_ds->length = length_new;
